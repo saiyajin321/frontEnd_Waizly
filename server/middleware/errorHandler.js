@@ -1,4 +1,5 @@
 const errorHandler = async (err, req, res, next) => {
+    console.log(err);
     if (err.name === "EmptyBody") {
         res.status(400).json({ message: "Field cannot be empty" })
     } else if (err.name === "noUser" || err.name === "JsonWebTokenError") {

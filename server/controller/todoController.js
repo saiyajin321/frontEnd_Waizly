@@ -17,7 +17,7 @@ class TodoController {
 
     static async addTodos(req, res, next) {
         try {
-            const TodoId = +req.body.TodoId
+            const TodoId  = req.body.ToDoId
             const UserId = req.user.id
             if (!TodoId) {
                 throw { name: 'EmptyBody' }
@@ -73,7 +73,7 @@ class TodoController {
                 throw { name : 'noProductFound'}
             }
 
-            const { status } = req.body
+            const status = req.body.status
             await Todo.update({status}, {where : {id}})
             res.status(201).json({message : "Todo Updated"})
         } catch (err) {
