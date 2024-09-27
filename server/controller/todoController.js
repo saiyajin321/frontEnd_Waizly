@@ -24,6 +24,7 @@ class TodoController {
             }
             const todo = await Todo.create({ TodoId, UserId, status: false })
             res.status(201).json(todo)
+            console.log("edited");
         } catch (err) {
             next(err)
         }
